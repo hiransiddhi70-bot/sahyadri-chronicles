@@ -530,3 +530,72 @@ function closePlace(){
 document.getElementById("placeModal").style.display="none";
 
 }
+window.onclick = function(e){
+
+if(e.target == document.getElementById("placeModal")){
+
+closePlace();
+
+}
+
+}
+const gallery=document.querySelectorAll(".gallery-grid img");
+
+gallery.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+window.open(img.src,"_blank");
+
+});
+
+});
+else if(q.includes("festival")){
+
+answer="🎉 Major festivals are Ganesh Chaturthi, Gudhi Padwa, Diwali, Navratri and Makar Sankranti.";
+
+}
+
+else if(q.includes("hotel")){
+
+answer="🏨 Popular stay options are in Ahilyanagar city, Shirdi and Bhandardara.";
+
+}
+
+else if(q.includes("trek")){
+
+answer="🥾 Best treks are Kalsubai Peak and Harishchandragad.";
+
+}
+
+else if(q.includes("weather")){
+
+answer="🌤️ October to February offers the best weather for tourism.";
+
+}
+
+else if(q.includes("budget")){
+
+answer="💰 A 2–3 day trip usually costs around ₹4,000–₹8,000 per person depending on accommodation and transport.";
+
+}
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Escape"){
+
+closePlace();
+
+}
+
+});
+document.querySelectorAll(".suggestions button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+document.getElementById("user-question").value=btn.innerText;
+
+askGuide();
+
+});
+
+});
