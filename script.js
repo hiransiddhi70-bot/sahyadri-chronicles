@@ -363,3 +363,61 @@ counter.innerText=count;
 
 
 });
+function askGuide(){
+
+let q=document
+.getElementById("user-question")
+.value
+.toLowerCase();
+
+
+let answer="";
+
+
+if(q.includes("food")){
+
+answer="🍛 Famous food: Misal Pav, Pithla Bhakri, Puran Poli, Vada Pav, Zunka Bhakar and Kanda Bhaji.";
+
+}
+
+else if(q.includes("place")){
+
+answer="🏰 Visit: Ahilyanagar Fort, Shirdi, Kalsubai Peak, Bhandardara and Harishchandragad.";
+
+}
+
+else if(q.includes("history")){
+
+answer="📜 Ahilyanagar has a rich legacy of Nizam Shahi, Maratha era and freedom movement history.";
+
+}
+
+else if(q.includes("shirdi")){
+
+answer="🙏 Shirdi is famous worldwide for Sai Baba Temple.";
+
+}
+
+else if(q.includes("kalsubai")){
+
+answer="⛰️ Kalsubai is Maharashtra's highest peak and a famous trekking destination.";
+
+}
+
+else if(q.includes("best")){
+
+answer="🌤️ Best time to visit Ahilyanagar is October to February.";
+
+}
+
+else{
+
+answer="🤖 Try asking: food, places, history, Shirdi, Kalsubai, best time.";
+
+}
+
+
+document.getElementById("bot-answer").innerHTML=answer;
+
+
+}
