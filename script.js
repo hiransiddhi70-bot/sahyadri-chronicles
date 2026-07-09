@@ -1,28 +1,31 @@
 
-/* ==========================
-   SAHYADRI CHRONICLES JS
-========================== */
+/* =================================
+   SAHYADRI CHRONICLES
+   Premium Tourism JavaScript
+================================= */
 
 
-/* Theme Toggle */
+/* ===============================
+   THEME TOGGLE
+================================ */
+
 
 const themeBtn = document.getElementById("theme-toggle");
 
 
-themeBtn.addEventListener("click", () => {
+themeBtn.addEventListener("click",()=>{
 
     document.body.classList.toggle("light-mode");
 
 
     if(document.body.classList.contains("light-mode")){
 
-        themeBtn.innerHTML = "☀️";
+        themeBtn.innerHTML="☀️";
 
     }
-
     else{
 
-        themeBtn.innerHTML = "🌙";
+        themeBtn.innerHTML="🌙";
 
     }
 
@@ -32,29 +35,64 @@ themeBtn.addEventListener("click", () => {
 
 
 
-/* Scroll Reveal Animation */
+/* ===============================
+   NAVBAR SCROLL EFFECT
+================================ */
 
 
-const elements = document.querySelectorAll(
-".card, .place-card, .timeline div, .gallery img"
+const navbar = document.querySelector(".navbar");
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 80){
+
+        navbar.style.background =
+        "rgba(0,0,0,0.85)";
+
+    }
+
+    else{
+
+        navbar.style.background =
+        "rgba(0,0,0,0.35)";
+
+    }
+
+
+});
+
+
+
+
+
+
+/* ===============================
+   SCROLL REVEAL ANIMATION
+================================ */
+
+
+const revealElements = document.querySelectorAll(
+
+".place-card, .stats div, .experience-grid div, .culture-grid div, .timeline div, .gallery-grid img"
+
 );
 
 
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
 
 (entries)=>{
 
 
-entries.forEach(entry=>{
+entries.forEach((entry)=>{
 
 
 if(entry.isIntersecting){
 
 
-entry.target.style.opacity = "1";
-
-entry.target.style.transform = "translateY(0)";
+entry.target.classList.add("show");
 
 
 }
@@ -66,28 +104,21 @@ entry.target.style.transform = "translateY(0)";
 },
 
 {
-
 threshold:0.15
-
 }
+
 
 );
 
 
 
+revealElements.forEach((element)=>{
 
 
-elements.forEach(el=>{
+element.classList.add("hidden");
 
 
-el.style.opacity="0";
-
-el.style.transform="translateY(40px)";
-
-el.style.transition="0.8s ease";
-
-
-observer.observe(el);
+revealObserver.observe(element);
 
 
 });
@@ -97,37 +128,65 @@ observer.observe(el);
 
 
 
-/* Dynamic Footer Year */
+
+/* ===============================
+   SMOOTH BUTTON SCROLL
+================================ */
 
 
-const footerText = document.querySelector("footer");
+const exploreBtn = document.querySelector(".explore-btn");
+
+
+exploreBtn.addEventListener("click",(e)=>{
+
+
+e.preventDefault();
+
+
+document.querySelector("#places")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+});
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER YEAR
+================================ */
+
+
+const footer = document.querySelector("footer");
 
 
 const year = new Date().getFullYear();
 
 
-footerText.innerHTML += 
+footer.innerHTML +=
+
 `<p>© ${year} Sahyadri Chronicles. All Rights Reserved.</p>`;
 
 
 
 
 
-
-/* Button Smooth Effect */
-
-
-const exploreBtn = document.querySelector(".btn");
+/* ===============================
+   LOADING EFFECT
+================================ */
 
 
-exploreBtn.addEventListener("click",()=>{
+window.addEventListener("load",()=>{
 
-window.scrollBy({
 
-top:500,
+document.body.style.opacity="1";
 
-behavior:"smooth"
-
-});
 
 });
