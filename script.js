@@ -285,3 +285,41 @@ document.getElementById("progress-bar")
 
 
 });
+/* ================= BACK TO TOP ================= */
+
+
+const topBtn=document.getElementById("top-btn");
+
+
+window.addEventListener("scroll",()=>{
+
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}
+
+else{
+
+topBtn.style.display="none";
+
+}
+
+
+});
+
+
+topBtn.addEventListener("click",()=>{
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+});
