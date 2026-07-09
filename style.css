@@ -1,0 +1,439 @@
+/* =========================
+   SAHYADRI CHRONICLES
+   Premium Heritage UI
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0b0b0b;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+
+.navbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 25px;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(15px);
+
+}
+
+
+.logo {
+
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffd166;
+
+}
+
+
+
+#theme-toggle {
+
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+
+}
+
+
+
+/* ================= HERO ================= */
+
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    background:
+
+    linear-gradient(
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.85)
+    ),
+
+    url("assets/images/maharashtra.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+
+.hero h1 {
+
+    font-size: 42px;
+    font-weight: 800;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: #ffd166;
+
+}
+
+
+.hero p {
+
+    margin: 20px 0;
+
+    color: #ddd;
+
+    font-size: 16px;
+
+}
+
+
+
+
+.btn {
+
+    display: inline-block;
+
+    padding: 12px 30px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+    45deg,
+    #ffd166,
+    #ff9f1c
+    );
+
+    color: black;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+.btn:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+
+/* ================= SECTIONS ================= */
+
+
+.section,
+.ahilya-section {
+
+    padding: 80px 25px;
+
+}
+
+
+.section h2,
+.ahilya-section h2 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+    font-size: 30px;
+
+    color:#ffd166;
+
+}
+
+
+
+
+/* ================= CARDS ================= */
+
+
+.cards {
+
+    display: grid;
+
+    gap: 20px;
+
+}
+
+
+
+.card {
+
+    background:
+
+    rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,209,102,.2);
+
+    backdrop-filter: blur(12px);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+    border-color:#ffd166;
+
+}
+
+
+
+
+
+/* ================= PLACES ================= */
+
+
+.place-grid {
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+
+
+.place-card {
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#151515;
+
+}
+
+
+
+.place-card img {
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+
+
+.place-card h3 {
+
+    padding:15px;
+
+    color:#ffd166;
+
+}
+
+
+
+
+
+/* ================= AHILYANAGAR ================= */
+
+
+.ahilya-section {
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #111,
+    #1b1205
+    );
+
+}
+
+
+
+
+/* ================= TIMELINE ================= */
+
+
+.timeline div {
+
+    background:#151515;
+
+    padding:20px;
+
+    margin:20px 0;
+
+    border-left:4px solid #ffd166;
+
+    border-radius:10px;
+
+}
+
+
+
+
+/* ================= FOOD ================= */
+
+
+.food {
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    justify-content:center;
+
+}
+
+
+.food span {
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+    background:#222;
+
+    border:1px solid #ffd166;
+
+}
+
+
+
+
+/* ================= GALLERY ================= */
+
+
+.gallery {
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:15px;
+
+}
+
+
+.gallery img {
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer {
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    background:#050505;
+
+    color:#aaa;
+
+}
+
+
+
+
+/* ================= DESKTOP ================= */
+
+
+@media(min-width:768px){
+
+
+.hero h1 {
+
+    font-size:70px;
+
+}
+
+
+.cards {
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+
+.place-grid {
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+
+.gallery {
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+
+}
