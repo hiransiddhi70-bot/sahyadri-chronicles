@@ -190,3 +190,29 @@ document.body.style.opacity="1";
 
 
 });
+/* ================= PRELOADER ================= */
+
+
+window.addEventListener("load",()=>{
+
+const loader=document.getElementById("preloader");
+
+
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+loader.style.transition="0.8s";
+
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},800);
+
+
+},1500);
+
+
+});
