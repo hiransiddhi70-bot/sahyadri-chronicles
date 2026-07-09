@@ -512,3 +512,47 @@ footer{
 
 
 }
+/* Scroll Animation */
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:0.8s ease;
+
+}
+
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+/* Light Mode */
+
+.light-mode{
+
+background:#f8f1e3;
+
+color:#222;
+
+}
+
+
+.light-mode .place-card,
+.light-mode .stats div,
+.light-mode .experience-grid div,
+.light-mode .culture-grid div,
+.light-mode .timeline div{
+
+background:white;
+
+color:#222;
+
+}
