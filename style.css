@@ -1327,3 +1327,143 @@ float:right;
 font-size:30px;
 cursor:pointer;
 }
+/* ================= PLACE CARD PREMIUM ================= */
+
+.place-card{
+cursor:pointer;
+position:relative;
+overflow:hidden;
+transition:.4s;
+}
+
+.place-card img{
+transition:.5s;
+}
+
+.place-card:hover img{
+transform:scale(1.08);
+}
+
+.place-card::after{
+content:"Click to Explore";
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:rgba(0,0,0,.75);
+padding:12px 20px;
+border-radius:30px;
+color:#fff;
+font-size:14px;
+opacity:0;
+transition:.3s;
+}
+
+.place-card:hover::after{
+opacity:1;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.88);
+justify-content:center;
+align-items:center;
+z-index:99999;
+animation:fade .4s;
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.modal-box{
+background:#16110c;
+width:90%;
+max-width:850px;
+padding:30px;
+border-radius:20px;
+overflow-y:auto;
+max-height:90vh;
+border:2px solid #f5c76b;
+box-shadow:0 0 30px rgba(245,199,107,.3);
+}
+
+.modal-box h2{
+color:#f5c76b;
+margin-bottom:15px;
+}
+
+.modal-box img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:15px;
+margin:20px 0;
+}
+
+.modal-box ul{
+padding-left:20px;
+line-height:2;
+}
+
+.close{
+font-size:34px;
+float:right;
+cursor:pointer;
+color:#f5c76b;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-grid img{
+transition:.5s;
+cursor:pointer;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px rgba(245,199,107,.5);
+}
+
+/* ================= FOOD ================= */
+
+.food-grid div{
+transition:.4s;
+cursor:pointer;
+}
+
+.food-grid div:hover{
+background:#f5c76b;
+color:#111;
+transform:translateY(-8px);
+}
+
+/* ================= ACCORDION ================= */
+
+.accordion-btn:hover{
+background:#f5c76b;
+color:#111;
+}
+
+.accordion-content{
+animation:slide .4s;
+}
+
+@keyframes slide{
+from{
+opacity:0;
+transform:translateY(-15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
