@@ -442,3 +442,91 @@ content.style.display="block";
 });
 
 });
+const places = {
+
+shirdi:{
+title:"🛕 Shirdi",
+image:"shirdi.jpg",
+history:"Shirdi is one of India's most important pilgrimage destinations. It is famous as the home of Shri Sai Baba, who lived here for many years. Millions of devotees visit every year seeking blessings and peace.",
+info:[
+"📍 Location: Ahilyanagar District",
+"🕒 Timings: Open all day",
+"💰 Entry Fee: Free",
+"⭐ Famous for: Sai Baba Temple",
+"🍛 Try: Prasad, Misal Pav"
+]
+},
+
+kalsubai:{
+title:"⛰️ Kalsubai Peak",
+image:"kalsubai.jpg",
+history:"Kalsubai is the highest peak in Maharashtra at about 1,646 meters. It is a favorite destination for trekkers and nature lovers, offering breathtaking sunrise views.",
+info:[
+"📍 Bari Village",
+"🥾 Trek Difficulty: Moderate",
+"🌤️ Best Time: Oct-Feb",
+"⭐ Height: 1646 m"
+]
+},
+
+bhandardara:{
+title:"🌊 Bhandardara",
+image:"bhandardara.jpg",
+history:"Bhandardara is a peaceful hill station known for Arthur Lake, Randha Falls, Wilson Dam and beautiful Sahyadri landscapes.",
+info:[
+"📍 Akole Taluka",
+"🌊 Arthur Lake",
+"💧 Randha Falls",
+"📸 Perfect for Photography"
+]
+},
+
+harishchandragad:{
+title:"🏞️ Harishchandragad",
+image:"harishchandragad.jpg",
+history:"Harishchandragad is an ancient hill fort famous for Konkan Kada, temples and adventurous trekking routes.",
+info:[
+"🥾 Famous Trek",
+"🌄 Konkan Kada",
+"🏛️ Ancient Temple"
+]
+},
+
+fort:{
+title:"🏰 Ahilyanagar Fort",
+image:"fort.jpg",
+history:"Ahilyanagar Fort reflects the glorious history of the region and the legacy of the Marathas. It has witnessed many important historical events.",
+info:[
+"📍 Ahilyanagar City",
+"🏛️ Historical Monument",
+"📸 Heritage Photography"
+]
+}
+
+};
+
+function openPlace(place){
+
+document.getElementById("placeTitle").innerHTML=places[place].title;
+
+document.getElementById("placeImage").src=places[place].image;
+
+document.getElementById("placeHistory").innerHTML=places[place].history;
+
+let html="";
+
+places[place].info.forEach(item=>{
+html+=`<li>${item}</li>`;
+});
+
+document.getElementById("placeInfo").innerHTML=html;
+
+document.getElementById("placeModal").style.display="flex";
+
+}
+
+function closePlace(){
+
+document.getElementById("placeModal").style.display="none";
+
+}
