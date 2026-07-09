@@ -217,7 +217,7 @@ Explore Ahilyanagar
 
 
 
-<div class="place-card">
+<div class="place-card" onclick="openPlace('fort')">
 
 <img src="fort.jpg">
 
@@ -237,7 +237,7 @@ A historic masterpiece carrying centuries of stories.
 
 
 
-<div class="place-card">
+<div class="place-card" onclick="openPlace('shirdi')">
 
 <img src="shirdi.jpg">
 
@@ -257,7 +257,7 @@ A world famous spiritual destination.
 
 
 
-<div class="place-card">
+<div class="place-card" onclick="openPlace('kalsubai')">
 
 <img src="kalsubai.jpg">
 
@@ -277,7 +277,7 @@ The highest mountain peak of Maharashtra.
 
 
 
-<div class="place-card">
+<div class="place-card" onclick="openPlace('bhandardara')">
 
 <img src="bhandardara.jpg">
 
@@ -297,7 +297,7 @@ Beautiful lakes, waterfalls and Sahyadri landscapes.
 
 
 
-<div class="place-card">
+<div class="place-card" onclick="openPlace('harishchandragad')">
 
 <img src="harishchandragad.jpg">
 
@@ -931,7 +931,23 @@ Created by Siddhi Hiran
 
 
 
+<div id="placeModal" class="modal">
 
+  <div class="modal-box">
+
+    <span class="close" onclick="closePlace()">&times;</span>
+
+    <h2 id="placeTitle"></h2>
+
+    <img id="placeImage" src="" alt="">
+
+    <p id="placeHistory"></p>
+
+    <ul id="placeInfo"></ul>
+
+  </div>
+
+</div>
 <script src="script.js"></script>
 
 
