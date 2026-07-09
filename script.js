@@ -323,3 +323,43 @@ behavior:"smooth"
 
 
 });
+/* ================= COUNTER ANIMATION ================= */
+
+
+const counters=document.querySelectorAll(".stats h3");
+
+
+counters.forEach(counter=>{
+
+
+let target=+counter.innerText.replace("+","");
+
+
+let count=0;
+
+
+let update=setInterval(()=>{
+
+
+count+=Math.ceil(target/50);
+
+
+if(count>=target){
+
+counter.innerText=target+"+";
+
+clearInterval(update);
+
+}
+
+else{
+
+counter.innerText=count;
+
+}
+
+
+},40);
+
+
+});
