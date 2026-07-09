@@ -437,3 +437,35 @@ footer {
 
 
 }
+/* LIGHT MODE */
+
+.light-mode {
+
+background:#f8f5ef;
+
+color:#222;
+
+}
+
+
+.light-mode .card {
+
+background:white;
+
+color:#222;
+
+}
+
+
+.light-mode .navbar {
+
+background:rgba(255,255,255,.7);
+
+}
+
+
+.light-mode footer {
+
+background:#eee;
+
+}
