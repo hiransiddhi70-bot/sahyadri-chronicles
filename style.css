@@ -1208,3 +1208,24 @@ grid-template-columns:1fr;
 
 
 }
+/* ================= SCROLL PROGRESS ================= */
+
+#progress-bar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+height:5px;
+
+width:0%;
+
+background:#f5c76b;
+
+z-index:99999;
+
+transition:.2s;
+
+}
