@@ -285,3 +285,52 @@ footer { background: #111; color: #bbb; text-align: center; padding: 40px 20px; 
     .planner-box { padding: 20px; }
     .planner-output { border-left: none; padding-left: 0; border-top: 1px solid var(--border-color); padding-top: 30px; }
 }
+/* ==========================================================================
+   UPGRADED CULTURE ACCORDION CARD GRID SYSTEM
+   ========================================================================== */
+.culture-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 15px 5px;
+}
+
+.culture-detail-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+    transition: transform 0.3s ease;
+}
+
+.culture-detail-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary);
+}
+
+.culture-detail-card h4 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 6px;
+    font-weight: 700;
+}
+
+.culture-detail-card p {
+    font-size: 0.9rem;
+    line-index: 1.5;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.culture-detail-card p strong {
+    color: var(--primary-dark);
+}
+
+.chevron-icon {
+    font-style: normal;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
