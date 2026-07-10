@@ -101,29 +101,20 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statCards.forEach(card => countObserver.observe(card));
 
-// 7. UPGRADED INTERACTIVE ACCORDION LOGIC
+// 7. INTERACTIVE ACCORDION LOGIC (BULLETPROOF CLASS TOGGLE)
 document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
-        const item = header.parentElement;
-        const block = header.nextElementSibling;
-        const icon = header.querySelector(".chevron-icon");
-        
-        document.querySelectorAll(".accordion-item").forEach(otherItem => {
-            if (otherItem !== item) {
-                const otherBlock = otherItem.querySelector(".accordion-content");
-                const otherIcon = otherItem.querySelector(".chevron-icon");
-                if (otherBlock) otherBlock.style.display = "none";
-                if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
+        const currentItem = header.parentElement;
+
+        // 1. Dusre saare open items ko band karne ke liye
+        document.querySelectorAll(".accordion-item").forEach(item => {
+            if (item !== currentItem) {
+                item.classList.remove("active");
             }
         });
 
-        if (block.style.display === "block") {
-            block.style.display = "none";
-            if (icon) icon.style.transform = "rotate(0deg)";
-        } else {
-            block.style.display = "block";
-            if (icon) icon.style.transform = "rotate(180deg)";
-        }
+        // 2. Current item ko kholne ya band karne ke liye
+        currentItem.classList.toggle("active");
     });
 });
 
