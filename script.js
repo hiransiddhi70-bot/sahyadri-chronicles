@@ -673,3 +673,32 @@ closePlace();
 }
 
 });
+/* =========================
+   CULTURE ACCORDION
+========================= */
+
+const accordionBtns = document.querySelectorAll(".accordion-btn");
+
+accordionBtns.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const content = btn.nextElementSibling;
+
+    // Close other opened accordions
+    document.querySelectorAll(".accordion-content").forEach(item => {
+      if (item !== content) {
+        item.style.display = "none";
+      }
+    });
+
+    // Toggle current accordion
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+
+  });
+
+});
