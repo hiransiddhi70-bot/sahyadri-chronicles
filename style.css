@@ -334,3 +334,54 @@ footer { background: #111; color: #bbb; text-align: center; padding: 40px 20px; 
     font-size: 0.8rem;
     transition: transform 0.3s ease;
 }
+/* ACCORDION BASE LAYOUT FIX */
+.accordion {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.accordion-item {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 6px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    transition: background 0.2s ease;
+}
+
+.accordion-header:hover {
+    background: #f9f9f9;
+}
+
+/* Shuruat mein content hidden rahega */
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+}
+
+/* Jab active class add hogi toh display block hoga */
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+.accordion-item.active .chevron-icon {
+    transform: rotate(180deg);
+}
