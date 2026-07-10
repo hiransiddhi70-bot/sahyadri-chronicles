@@ -104,29 +104,35 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statCards.forEach(card => countObserver.observe(card));
 
-// 7. INTERACTIVE ACCORDION LOGIC
-document.querySelectorAll(".accordion-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const block = btn.nextElementSibling;
-        const span = btn.querySelector("span");
+// 7. INTERACTIVE ACCORDION LOGIC (UPGRADED FOR CARD GRID)
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const item = header.parentElement;
+        const block = header.nextElementSibling;
+        const icon = header.querySelector(".chevron-icon");
         
-        // Hide remaining matching siblings
-        document.querySelectorAll(".accordion-content").forEach(content => {
-            if (content !== block) {
-                content.style.display = "none";
-                content.previousElementSibling.querySelector("span").innerText = "+";
+        // Baki saare open accordions ko band karne ke liye
+        document.querySelectorAll(".accordion-item").forEach(otherItem => {
+            if (otherItem !== item) {
+                const otherBlock = otherItem.querySelector(".accordion-content");
+                const otherIcon = otherItem.querySelector(".chevron-icon");
+                if (otherBlock) otherBlock.style.display = "none";
+                if (otherIcon) otherIcon.style.transform = "rotate(0deg)";
             }
         });
 
+        // Current accordion ko toggle karne ke liye
         if (block.style.display === "block") {
             block.style.display = "none";
-            span.innerText = "+";
+            if (icon) icon.style.transform = "rotate(0deg)";
         } else {
             block.style.display = "block";
-            span.innerText = "-";
+            if (icon) icon.style.transform = "rotate(180deg)";
         }
     });
 });
+
+           
 
 // 8. DATA REGISTRY SYSTEM FOR DESTINATIONS & DIRECTORY SEARCH
 const destinationData = {
