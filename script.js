@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SAHYADRI CHRONICLES - SYSTEM LOGIC ENGINE
+   SAHYADRI CHRONICLES - SYSTEM LOGIC ENGINE (COMPLETE FULL RECOVERY)
    ========================================================================== */
 
 // 1. PRELOADER CONTROLLER
@@ -30,7 +30,6 @@ if (menuIcon && navLinks) {
         navLinks.classList.toggle("active");
         menuIcon.innerHTML = navLinks.classList.contains("active") ? "✖" : "☰";
     });
-    // Close on link interaction
     document.querySelectorAll(".nav-links a").forEach(link => {
         link.addEventListener("click", () => {
             navLinks.classList.remove("active");
@@ -41,7 +40,6 @@ if (menuIcon && navLinks) {
 
 // 4. SCROLL SYSTEM: PROGRESS BAR & BACK TO TOP VISIBILITY
 window.addEventListener("scroll", () => {
-    // Scroll progress rendering
     const progressBar = document.getElementById("progress-bar");
     if (progressBar) {
         const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -50,7 +48,6 @@ window.addEventListener("scroll", () => {
         progressBar.style.width = scrolled + "%";
     }
 
-    // Floating Back to top reveal state
     const backToTop = document.getElementById("back-to-top");
     if (backToTop) {
         backToTop.style.display = window.scrollY > 400 ? "block" : "none";
@@ -69,7 +66,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            revealObserver.unobserve(entry.target); // Trigger once
+            revealObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.12 });
@@ -104,14 +101,13 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 statCards.forEach(card => countObserver.observe(card));
 
-// 7. INTERACTIVE ACCORDION LOGIC (UPGRADED FOR CARD GRID)
+// 7. UPGRADED INTERACTIVE ACCORDION LOGIC
 document.querySelectorAll(".accordion-header").forEach(header => {
     header.addEventListener("click", () => {
         const item = header.parentElement;
         const block = header.nextElementSibling;
         const icon = header.querySelector(".chevron-icon");
         
-        // Baki saare open accordions ko band karne ke liye
         document.querySelectorAll(".accordion-item").forEach(otherItem => {
             if (otherItem !== item) {
                 const otherBlock = otherItem.querySelector(".accordion-content");
@@ -121,7 +117,6 @@ document.querySelectorAll(".accordion-header").forEach(header => {
             }
         });
 
-        // Current accordion ko toggle karne ke liye
         if (block.style.display === "block") {
             block.style.display = "none";
             if (icon) icon.style.transform = "rotate(0deg)";
@@ -132,9 +127,7 @@ document.querySelectorAll(".accordion-header").forEach(header => {
     });
 });
 
-           
-
-// 8. DATA REGISTRY SYSTEM FOR DESTINATIONS & DIRECTORY SEARCH
+// 8. DATA REGISTRY SYSTEM FOR DESTINATIONS
 const destinationData = {
     fort: {
         title: "Ahilyanagar Fort (Ahmednagar Fort)",
@@ -142,38 +135,38 @@ const destinationData = {
         location: "Ahilyanagar City Center Hub",
         timings: "09:00 AM - 06:00 PM Daily",
         fee: "₹25 per Person (Indian Citizens)",
-        season: "October to March (Pleasant Winters)",
-        history: "Erected in 1494 by Malik Ahmad Nizam Shah, this architectural masterpiece features unyielding structural walls and extensive defensive moats. It is famous for Chand Bibi's legendary defense and historically holding iconic nationalist leaders including Jawaharlal Nehru during the Quit India movement.",
-        transport: "Directly connected via Ahilyanagar Central Bus Station and Railway Junction.",
-        hotels: "Premium accommodations like Hotel Radiance and traditional city center restaurants.",
-        tips: "Perfect for deep architectural and history photography. Hire local registry guides.",
-        facts: ["Moat architecture once filled with crocodiles", "Contains the famous Nehru Memorial Hall room", "Solid stone bastions survive intact"]
+        season: "October to March",
+        history: "Erected in 1494 by Malik Ahmad Nizam Shah. It features complex ground defensive designs, high circular stone walls, and a deep surrounding moat. Famously served as a historical stronghold for Chand Bibi's battles, and later held political figures like Jawaharlal Nehru in 1942.",
+        transport: "Connected via Ahilyanagar Central Bus Station and Railway Junction.",
+        hotels: "Premium accommodations like Hotel Radiance.",
+        tips: "Perfect for deep architectural photography.",
+        facts: ["Moat once filled with crocodiles", "Contains Nehru Memorial Room", "Solid stone bastions live intact"]
     },
     shirdi: {
         title: "Shirdi Sai Baba Holy Sanctuary",
         image: "shirdi.jpg",
         location: "Shirdi Sub-district Region",
         timings: "04:00 AM - 11:15 PM Daily",
-        fee: "Free Entry (VIP darshan passes optionally chargeable)",
-        season: "Year-Round destination (October-March preferred)",
-        history: "The global epicenter of harmony, spiritual solace, and peace. It marks the holy samadhi location of revered Saint Shri Sai Baba, who spent his entire life spreading message of universal brotherhood.",
-        transport: "Served directly by Sainagar Shirdi Railway Terminus and Shirdi Airport.",
-        hotels: "Hundreds of budget homestays, dynamic dhabas, and premium MTDC pilgrim accommodations.",
-        tips: "Pre-book passes online to skip crowd lines. Dress with traditional respect.",
-        facts: ["Feeds over 100,000 pilgrims daily in one mega kitchen", "Maintains eternal holy fire (Dhuni) since 100+ years", "Universal center open to all faiths without distinction"]
+        fee: "Free Entry",
+        season: "Year-Round destination",
+        history: "The global epicenter of harmony and peace. It marks the holy samadhi location of revered Saint Shri Sai Baba, who spent his entire life spreading the message of universal brotherhood.",
+        transport: "Served by Sainagar Shirdi Railway Terminus and Shirdi Airport.",
+        hotels: "Budget homestays, dynamic dhabas, and premium MTDC hotels.",
+        tips: "Pre-book passes online to skip crowd lines.",
+        facts: ["Feeds over 100,000 pilgrims daily", "Maintains eternal holy fire (Dhuni) since 100+ years", "Universal center open to all faiths"]
     },
     kalsubai: {
         title: "Mighty Kalsubai Peak Trek",
         image: "kalsubai.jpg",
         location: "Bari Base Village, Akole Range",
-        timings: "Open 24/7 (Night climbing highly popular)",
-        fee: "Free entry (Small village parking fee applies)",
-        season: "Monsoons for lush greenery; Winters for clear cloud views",
-        history: "Towering high at $1,646\text{ meters}$, it proudly claims the title of the highest mountain peak in Maharashtra. Features a highly revered ancient temple dedicated to local deity Kalsubai at the summit peak ridge.",
-        transport: "Take central ST buses to Igatpuri/Akole, then hop on local shared transport to Bari village.",
-        hotels: "Traditional rustic homestays in Bari offering home-cooked pithla bhakri and simple stays.",
-        tips: "Carry sturdy tracking poles and torches for early morning cloud sunrise tracking.",
-        facts: ["Iron structural ladders installed on critical vertical rock faces", "Offers unobstructed 360-degree panoramic views of surrounding Bhandardara dams", "Legendary testing spot for elite mountain climbers"]
+        timings: "Open 24/7",
+        fee: "Free entry",
+        season: "Monsoons & Winters",
+        history: "Towering high at 1646 meters, it proudly claims the title of the highest mountain peak in Maharashtra. Features a highly revered ancient temple dedicated to local deity Kalsubai at the summit.",
+        transport: "ST buses to Igatpuri/Akole, then shared transport to Bari village.",
+        hotels: "Rustic homestays in Bari offering home-cooked food.",
+        tips: "Carry sturdy trekking poles and torches for sunrise tracking.",
+        facts: ["Iron structural ladders installed on vertical faces", "Offers 360-degree views of Bhandardara dams", "Testing spot for elite mountain climbers"]
     },
     bhandardara: {
         title: "Bhandardara Lake Resort & Dam Eco-Park",
@@ -181,12 +174,12 @@ const destinationData = {
         location: "Akole Region Foothills",
         timings: "Open all day long",
         fee: "Free entry to viewpoints",
-        season: "July to February (Peak waterfalls during monsoon rain overflow)",
+        season: "July to February",
         history: "A pristine natural lake settlement located along the iconic Pravara river. Home to Arthur Lake, Wilson Dam built in 1910, and stunning Umbrella Falls layout channels.",
-        transport: "Easiest via private vehicles tracking from Pune/Nashik highway corridors.",
-        hotels: "MTDC Lake View Resort and multiple luxury camping options along raw lake banks.",
-        tips: "Plan a trip during June-July to experience thousands of glowing fireflies inside the forests.",
-        facts: ["Wilson Dam is one of the oldest running earthen dams in India", "Spawns spectacular seasonal reverse-flow wind waterfalls", "Major location for avian bird watching and astro-photography"]
+        transport: "Easiest via private vehicles tracking from Pune/Nashik highways.",
+        hotels: "MTDC Lake View Resort and multiple luxury camping options.",
+        tips: "Plan a trip during June-July to experience fireflies inside forests.",
+        facts: ["Wilson Dam is one of the oldest running earthen dams", "Spawns spectacular seasonal reverse waterfalls", "Major location for avian bird watching"]
     },
     harishchandragad: {
         title: "Harishchandragad Ancient Hill Citadel",
@@ -194,12 +187,12 @@ const destinationData = {
         location: "Khireshwar / Pachnai Entry tracks",
         timings: "Best during daytime hours",
         fee: "Free entry registration",
-        season: "Post-monsoons (September to February) for safety and photography",
+        season: "September to February",
         history: "An ancient 6th-century hill fortress full of deep cave structures, rock carving arts, and a stunning Shiva temple. Its ultimate highlight is Konkan Kada—a gigantic, semi-circular vertical cliff face.",
-        transport: "Reach via private vehicles or state transit buses heading towards Malshej Ghat lines.",
-        hotels: "Cave stays or tent camping at the top with basic local village food stalls.",
-        tips: "Avoid trying to climb Konkan Kada edges during high wind or dense fog conditions.",
-        facts: ["Konkan Kada features a concave overhang structure throwing spectacular circular shadows", "Contains the famous Kedarshwar cave holding a massive Shiva Lingam surrounded by water", "Mentioned in puranic historic literature scriptures"]
+        transport: "Reach via private vehicles or transit buses heading towards Malshej Ghat lines.",
+        hotels: "Cave stays or tent camping at the top with basic local village food.",
+        tips: "Avoid trying to climb Konkan Kada edges during high wind.",
+        facts: ["Konkan Kada features a concave overhang", "Contains Kedarshwar cave holding a massive Shiva Lingam", "Mentioned in puranic literature"]
     }
 };
 
@@ -218,19 +211,19 @@ function renderDirectory(filterText = "") {
             matchedCount++;
             const element = document.createElement("div");
             element.className = "dir-item";
-            element.innerHTML = `<h4>${item.title}</h4><p>${item.location} — Click to Launch Encyclopedia</p>`;
+            element.innerHTML = `<h4>${item.title}</h4><p>${item.location} — Open Encyclopedia</p>`;
             element.onclick = () => openModal(key);
             resultsContainer.appendChild(element);
         }
     }
     if(matchedCount === 0) {
-        resultsContainer.innerHTML = `<p style="padding:15px; color:var(--text-muted);">No matching destination paths found.</p>`;
+        resultsContainer.innerHTML = `<p style="padding:15px; color:var(--text-muted);">No matching paths found.</p>`;
     }
 }
 if (searchInput) {
     searchInput.addEventListener("input", (e) => renderDirectory(e.target.value));
 }
-renderDirectory(); // Initialization call
+renderDirectory();
 
 // 10. MODAL DISPLAY SYSTEM CONTROLLERS
 function openModal(key) {
@@ -263,7 +256,6 @@ function closeModal() {
     document.getElementById("encyclopedia-modal").style.display = "none";
 }
 
-// Close Modal on overlay tap or Escape hit
 window.addEventListener("click", (e) => {
     const modal = document.getElementById("encyclopedia-modal");
     if (e.target === modal) closeModal();
@@ -277,7 +269,9 @@ function filterCuisine(category) {
     document.querySelectorAll(".cuisine-tabs .tab-btn").forEach(btn => {
         btn.classList.remove("active");
     });
-    event.target.classList.add("active");
+    if(event && event.target) {
+        event.target.classList.add("active");
+    }
 
     document.querySelectorAll("#cuisine-grid .food-card").forEach(card => {
         if (category === "all" || card.getAttribute("data-category") === category) {
@@ -298,38 +292,36 @@ function generateItinerary() {
     if(budget === "luxury") costRange = days === "1" ? "₹5,000+" : days === "2" ? "₹12,000+" : "₹25,000+";
 
     let timelineHTML = `<h3>Blueprint Output Structure (${days} Day(s) — ${budget.toUpperCase()})</h3>`;
-    timelineHTML += `<p style='margin-bottom:15px; font-weight:bold; color:var(--primary)'>Estimated Cost Matrix Bracket: ${costRange}</p>`;
+    timelineHTML += `<p style='margin-bottom:15px; font-weight:bold; color:var(--primary)'>Estimated Cost: ${costRange}</p>`;
 
     if (days === "1") {
         timelineHTML += `
-            <div class='plan-node'><h4>08:00 AM — Base Assembly</h4><p>Arrive via morning express routes. Setup base tracking at historical city market hub.</p></div>
-            <div class='plan-node'><h4>10:00 AM — Fort Deep Heritage Walk</h4><p>Explore Ahilyanagar stone fortification structures and historic museum rooms.</p></div>
-            <div class='plan-node'><h4>01:30 PM — Ethnic Culinary Experience</h4><p>Stop for legendary authentic spicy Misal Pav or rustic Pithla Bhakri lunches.</p></div>
-            <div class='plan-node'><h4>04:30 PM — Scenic Transit Wrap</h4><p>Head to dynamic viewpoints or proceed to high spiritual sanctuary spaces for calm evenings.</p></div>
+            <div class='plan-node'><h4>08:00 AM — Base Assembly</h4><p>Arrive via morning express routes.</p></div>
+            <div class='plan-node'><h4>10:00 AM — Fort Deep Heritage Walk</h4><p>Explore Ahilyanagar stone fortification structures.</p></div>
+            <div class='plan-node'><h4>01:30 PM — Ethnic Culinary Experience</h4><p>Stop for legendary authentic spicy Misal Pav.</p></div>
         `;
     } else if (days === "2") {
         timelineHTML += `
-            <div class='plan-node'><h4>Day 1: Historic City Core & Forts</h4><p>Devote the complete day exploring central monument archives, ancient architectural structures, and traditional artisan weaving centers.</p></div>
-            <div class='plan-node'><h4>Day 2: Alpine Mountain Flight & Waterfalls</h4><p>Drive straight to Bhandardara lake basin loops. Experience Arthur lake banks, historical dam outlets, and authentic village homestays.</p></div>
+            <div class='plan-node'><h4>Day 1: Historic City Core & Forts</h4><p>Devote the complete day exploring central monument archives.</p></div>
+            <div class='plan-node'><h4>Day 2: Alpine Mountain Flight & Waterfalls</h4><p>Drive straight to Bhandardara lake basin loops.</p></div>
         `;
     } else {
         timelineHTML += `
-            <div class='plan-node'><h4>Day 1: Epic Heritage & Traditional Core</h4><p>Exhaustive city walks covering Nizam Shahi roots, historical battle sectors, and dynamic artisan food lanes.</p></div>
-            <div class='plan-node'><h4>Day 2: Peak Trekking & Adventure Conquest</h4><p>Early morning trek up the iconic ladders of Kalsubai Peak. Experience sunset views near Akole valleys.</p></div>
-            <div class='plan-node'><h4>Day 3: Ultimate Spiritual Sanctuary & Rest</h4><p>Travel to Shirdi for deep spiritual relaxation, ending your journey with peaceful community meals.</p></div>
+            <div class='plan-node'><h4>Day 1: Epic Heritage Core</h4><p>Exhaustive city walks covering Nizam Shahi roots.</p></div>
+            <div class='plan-node'><h4>Day 2: Peak Trekking Conquest</h4><p>Early morning trek up the iconic ladders of Kalsubai Peak.</p></div>
+            <div class='plan-node'><h4>Day 3: Ultimate Spiritual Sanctuary</h4><p>Travel to Shirdi for deep spiritual relaxation.</p></div>
         `;
     }
-
     output.innerHTML = timelineHTML;
 }
 
 // 13. KNOWLEDGE ENCYCLOPEDIA CHAT BOT ENGINE
 const aiDatabase = {
-    "fort": "🏯 Ahilyanagar Fort History:\nFounded in 1494 by Ahmad Nizam Shah. It features complex ground defensive designs, high circular stone walls, and a deep surrounding moat. Famously served as a historical stronghold for the Nizam Shahi empire, Chand Bibi's battles, and later a key political prison holding prime historical figures like Jawaharlal Nehru in 1942.",
-    "puran": "🥞 Authentic Puran Poli Culinary Guide:\nIngredients: Split chana dal, pure sweet jaggery, cardamom powder, wheat flour base.\nProcess: Simmer the dal till soft, blend it with pure melted jaggery to build the sweet 'Puran' paste stuffings. Roll it flat inside thin wheat dough casings and bake with pure desi ghee on iron pans till golden brown.",
-    "kalsubai": "⛰️ Kalsubai Peak Trek Planner:\nElevation: $1,646\text{ meters}$ (Maharashtra's highest summit point).\nStarting Node: Bari Village.\nBest Season: July to February. Steel safety staircase handles are fixed along tricky perpendicular rock paths to support modern amateur trekkers.",
-    "hotel": "🏨 Recommended Accommodations & Emergency Contacts:\n- Premium Stays: Hotel Radiance, MTDC Lake Side Resort Bhandardara.\n- Budget Stays: Shirdi Pilgrimage Sansthan Homestays, Bari village eco-tents.\n- Emergency Helpline System: Ahilyanagar District Police Desk: 112 / Tourism Medical Help Cell: 108.",
-    "misal": "🍛 Local Misal Pav Recipe Fact:\nFeatures sprouted matki beans prepared inside a fiery spice broth called 'Kat' or 'Rassa'. Garnish with chopped raw onions, squeeze fresh lemon juice, layer crispy farsan mix, and serve with toasted butter pav bread."
+    "fort": "🏯 Ahilyanagar Fort History:\nFounded in 1494 by Ahmad Nizam Shah. It features ground defensive designs, high circular stone walls, and a deep moat. Famously served as a stronghold for Chand Bibi's battles, and held prime figures like Jawaharlal Nehru in 1942.",
+    "puran": "🥞 Authentic Puran Poli Guide:\nIngredients: Split chana dal, pure sweet jaggery, cardamom powder, wheat flour. Mix soft dal with jaggery to build sweet stuffings. Roll flat and bake with pure desi ghee till golden brown.",
+    "kalsubai": "⛰️ Kalsubai Peak Trek:\nElevation: 1646 meters (Maharashtra's highest summit point). Starting Node: Bari Village. Best Season: July to February.",
+    "hotel": "🏨 Accommodations & Helpline:\n- Premium: Hotel Radiance, MTDC Lake Side Resort.\n- Emergency Desk: 112 / Medical Cell: 108.",
+    "misal": "🍛 Local Misal Pav Fact:\nFeatures sprouted matki beans prepared inside a fiery spice broth called 'Kat'. Garnish with onions, lemon juice, and crisp farsan."
 };
 
 function processAIQuery(customText = null) {
@@ -341,7 +333,7 @@ function processAIQuery(customText = null) {
     if (!queryText.trim()) return;
 
     queryText = queryText.toLowerCase();
-    let reply = "🤖 Search Query Parsed. Checking digital encyclopedia logs...\n\nI could not find an exact match for that specific keyword phrase. Try checking queries about: 'Fort history', 'Puran Poli recipe', 'Kalsubai trek timings', 'Misal Pav' or 'Hotel stays'.";
+    let reply = "🤖 Search Log: Keyword match not found. Try asking about: 'Fort history', 'Puran Poli recipe', 'Kalsubai trek', 'Misal Pav' or 'Hotels'.";
 
     if (queryText.includes("fort") || queryText.includes("history")) {
         reply = aiDatabase["fort"];
@@ -349,19 +341,19 @@ function processAIQuery(customText = null) {
         reply = aiDatabase["puran"];
     } else if (queryText.includes("kalsubai") || queryText.includes("trek") || queryText.includes("peak")) {
         reply = aiDatabase["kalsubai"];
-    } else if (queryText.includes("hotel") || queryText.includes("stay") || queryText.includes("emergency") || queryText.includes("tips")) {
+    } else if (queryText.includes("hotel") || queryText.includes("stay") || queryText.includes("emergency")) {
         reply = aiDatabase["hotel"];
     } else if (queryText.includes("misal") || queryText.includes("food") || queryText.includes("eat")) {
         reply = aiDatabase["misal"];
     }
 
     responseEl.innerText = reply;
-    if(inputEl && !customText) inputEl.value = ""; // Clear input bar
+    if(inputEl && !customText) inputEl.value = "";
 }
 
-// Connection logic for interactive AI suggestion tag cloud clicks
 document.querySelectorAll(".suggestions-cloud button").forEach(btn => {
     btn.addEventListener("click", () => {
         processAIQuery(btn.innerText);
     });
 });
+       
